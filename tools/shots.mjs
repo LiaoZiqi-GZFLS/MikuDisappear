@@ -86,7 +86,7 @@ if (sheetN) {
 
 let i = 0;
 for (const t of times) {
-  await page.evaluate((tt) => window.__mv.renderFrame(tt, true), t);
+  await page.evaluate(({ tt, hud }) => window.__mv.renderFrame(tt, hud), { tt: t, hud: HUD });
   const file = path.join(OUT, `t${t.toFixed(2).padStart(7, "0")}.png`);
   await page.screenshot({ path: file, clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT } });
   process.stdout.write(`\r${++i}/${times.length}  ${t.toFixed(2)}s   `);
