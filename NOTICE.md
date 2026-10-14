@@ -57,3 +57,19 @@ python tools/ascii-import.py assets/ref/miku_luogu.png data/ascii/miku-face.json
   默认管线在页面内用 WebCodecs 调用本机硬件编码器（NVIDIA NVENC / Intel QSV / AMD AMF），
   ffmpeg 只做封装；`--pipeline png` 是纯 CPU 的备用路径，两者画面相同。
 - 运行与渲染本身无第三方运行时依赖（原生 WebGL2 + Canvas2D + ES modules）。
+
+## 许可与来源
+
+| 内容 | 协议 |
+|---|---|
+| 代码（`src/`、`tools/`、`index.html`、`server.mjs`） | [GNU AGPL-3.0](LICENSE) |
+| 画面、成片输出与文档（`docs/`、README 文字） | [CC BY-NC-SA 4.0](LICENSE-CONTENT.md) |
+| 字体子集（`assets/fonts/*.woff2`） | SIL Open Font License 1.1（随上游授权原样分发） |
+| 歌曲录音、歌词与其派生分析数据（`data/*.json`、`data/*.bin`） | 不授权，权利属原作者及权利人 |
+
+代码采用 AGPL-3.0 的原因之一：`src/gl.js` 里的**点云转场**（pointcut join）
+改写自 [FrostNovaOrg/world-execute-web](https://github.com/FrostNovaOrg/world-execute-web)
+（AGPL-3.0）。参考实现是 `THREE.Points` 顶点着色器；本仓库把它重做成一趟全屏格子着色器
+（按帧划格、增加亮度门控），但沿用了原实现的分阶段思路与命名，因此按 AGPL-3.0 第 5 条
+以同一协议分发。其余代码（时间轴、相机、场景、排版、导出工具链）为原创；
+[mexicat/pdoom-video](https://github.com/mexicat/pdoom-video)（MIT）只在结构上提供参考，未复制代码。

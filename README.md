@@ -239,5 +239,12 @@ python tools/make_fonts.py
 
 ## 许可
 
-- 代码与画面：见 [NOTICE.md](NOTICE.md)。
-- 歌曲录音与歌词版权属于 cosMo@暴走P 及其权利人，**不包含在本仓库的开源许可内**；本片为非官方同人作品。
+| 内容 | 协议 |
+|---|---|
+| 代码（`src/`、`tools/`、`index.html`、`server.mjs`） | [GNU AGPL-3.0](LICENSE) |
+| 画面、成片输出与文档（`docs/`） | [CC BY-NC-SA 4.0](LICENSE-CONTENT.md) |
+| 字体子集（`assets/fonts/*.woff2`） | SIL Open Font License 1.1 |
+| 歌曲录音、歌词与其派生分析数据 | 不授权，权利属原作者及权利人 |
+
+歌曲录音与歌词版权属于 cosMo@暴走P 及其权利人，**不包含在本仓库的开源许可内**；
+本片为非官方同人作品。代码沿用 AGPL 的原因、以及各部分的来源，见 [NOTICE.md](NOTICE.md)。
