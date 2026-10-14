@@ -1,0 +1,21 @@
+{
+  "name": "miku-disappear-afterimage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "残像 / AFTERIMAGE —— 由代码逐帧生成的音乐短片（WebGL2 + Canvas2D，确定性 render(t)）",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "shots": "node tools/shots.mjs",
+    "render": "node tools/render.mjs",
+    "semantics": "node tools/semantics.mjs --quiet",
+    "camera": "node tools/camera-report.mjs --check"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.64.0"
+  }
+}

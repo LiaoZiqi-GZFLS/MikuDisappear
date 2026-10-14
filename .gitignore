@@ -19,6 +19,15 @@ data/ascii/miku-bust.json
 6.png
 --cols.png
 
+# 导出到仓库根目录的影片（README 里的 `--out clip.mp4` 之类）
+/*.mp4
+/*.webm
+/*.mkv
+
 # Python
 __pycache__/
 *.pyc
+
+# 系统
+.DS_Store
+Thumbs.db

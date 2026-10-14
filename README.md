@@ -12,6 +12,13 @@
 （浏览器实时渲染 + 预分析音乐数据）与 [mexicat/pdoom-video](https://github.com/mexicat/pdoom-video)
 （确定性渲染 + 离线导出 + 逐词对齐歌词）。
 
+四帧静帧（都由 `tools/shots.mjs` 从同一份 `render(t)` 导出，未经过任何后期）：
+
+|  |  |
+|---|---|
+| ![诞生 · HEAD-01 打印舱](docs/preview/birth.webp) | ![记忆 · 放映厅](docs/preview/memory.webp) |
+| ![终演 · 应援灯海](docs/preview/final.webp) | ![冷存储 · 观众一栏](docs/preview/afterimage.webp) |
+
 ## 运行
 
 ```bash
@@ -26,7 +33,27 @@ node server.mjs 5173          # 零依赖静态服务器（带 Range，支持音
 初音ミク,cosMo@暴走P - 初音ミクの消失.lrc
 ```
 
-没有音频时页面仍可播放，画面会走静音时钟。
+没有音频时页面仍可播放，画面会走静音时钟（控制台只有一个 mp3 的 404，属正常）。
+
+`assets/ref/miku_luogu.png`（ASCII 人像工具链的参考图）与 `data/ascii/*.json` 授权未确认，
+同样不随仓库分发；ASCII 管线可以用自有图片经 `tools/ascii-import.py` 重新生成，
+成片不使用这条管线（见 [NOTICE.md](NOTICE.md)）。
+
+### 依赖
+
+页面本身零依赖（原生 WebGL2 + Canvas2D，不拉任何 CDN）。以下是工具链才需要的：
+
+| 用途 | 需要 |
+|---|---|
+| 运行页面 | Node 18+（只用到内置模块） |
+| 截图 / 导出 / 探针（`tools/*.mjs`） | `npm install`（只装 `playwright-core`）+ 一个 Chromium 系浏览器 + ffmpeg |
+| 重新分析音频（`tools/analyze.py`） | Python 3 + numpy / scipy + ffmpeg |
+
+浏览器默认找 Windows 上的 Edge，其他平台或想用 Chrome 就用 `MV_BROWSER` 指定：
+
+```bash
+MV_BROWSER=/usr/bin/chromium node tools/shots.mjs --times 30 --out out/qa
+```
 
 ### 快捷键
 
@@ -39,7 +66,8 @@ node server.mjs 5173          # 零依赖静态服务器（带 Range，支持音
 
 ## 导出
 
-同一个渲染代码可以直接输出视频。默认走**页面内硬件编码**（WebCodecs → NVENC/QSV/AMF），
+工具连的是本地服务器，先起 `node server.mjs 5173`（换端口用 `--port`）。
+同一个渲染代码可以直接输出视频，默认走**页面内硬件编码**（WebCodecs → NVENC/QSV/AMF），
 ffmpeg 只负责把码流和原始音频封装起来：
 
 ```bash
