@@ -1,0 +1,24 @@
+# 本地运行与渲染产物
+node_modules/
+out/
+
+# 第三方参考仓库的本地克隆（见 README 参考项目）
+_ref_pdoom/
+_ref_world/
+
+# 歌曲录音与歌词：版权不属于本仓库，运行时由使用者在本地自备（见 NOTICE.md）
+初音ミク,cosMo@暴走P - 初音ミクの消失.mp3
+初音ミク,cosMo@暴走P - 初音ミクの消失.lrc
+
+# 参考插画授权未确认，暂不随仓库公开分发（见 NOTICE.md）
+assets/ref/miku_luogu.png
+data/ascii/miku-face.json
+data/ascii/miku-bust.json
+
+# 临时截图 / QA 输出
+6.png
+--cols.png
+
+# Python
+__pycache__/
+*.pyc

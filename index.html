@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>残像 / AFTERIMAGE — code-generated music film</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2305070a'/><rect x='6' y='15' width='20' height='2' fill='%2339c5bb'/></svg>">
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage-wrap">
+    <canvas id="stage" width="1920" height="1080"></canvas>
+    <div id="veil">
+      <div id="veil-inner">
+        <div class="veil-kicker">VOCALOID / CV-01</div>
+        <div class="veil-title">残像 / AFTERIMAGE</div>
+        <div class="veil-sub">初音ミクの消失 — cosMo@暴走P · <span class="k">code-generated music film</span></div>
+        <div id="load-line">正在加载分析数据…</div>
+        <button id="start-btn" hidden>开始播放</button>
+      </div>
+    </div>
+    <div id="corner-title">
+      <span class="ct-main">残像 / AFTERIMAGE</span>
+      <span class="ct-sub">初音ミクの消失 · cosMo@暴走P</span>
+    </div>
+  </div>
+
+  <div id="bar">
+    <button id="play" class="icon" aria-label="播放 / 暂停">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="play-path" d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div id="time">00:00.00 <span class="sep">/</span> <span id="dur">00:00.00</span></div>
+    <div id="scrub" role="slider" aria-label="进度" tabindex="0">
+      <div id="scrub-track"><div id="scrub-fill"></div><div id="scrub-ticks"></div></div>
+      <div id="scrub-head"></div>
+      <div id="scrub-label"></div>
+    </div>
+    <div id="chapter-label">—</div>
+    <div class="spacer"></div>
+    <button id="chapters-btn" class="text">章节</button>
+    <button id="quality-btn" class="text">画质 1×</button>
+    <button id="full-btn" class="text">全屏</button>
+    <button id="clean-btn" class="text">纯净</button>
+  </div>
+  <div id="chapters" hidden></div>
+  <div id="hint">空格 播放/暂停 · ←/→ 5 秒 · ,/. 逐帧 · HUD 开关 H · 全屏 F · 隐藏界面 C</div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
